@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Coffeeloka</string>
+    <string name="title_coffee">Title Coffee</string>
+    <string name="address_coffee">address coffee</string>
+    <string name="like">Like</string>
+    <string name="account">Account</string>
+    <string name="coffee_shop">Coffee Shop</string>
+    <string name="days">Senin\n\nSelasa\n\nRabu\n\nKamis\n\nJumat\n\nSabtu\n\nMinggu</string>
+    <string name="waktu_indonesia_barat">WIB\n\nWIB\n\nWIB\n\nWIB\n\nWIB\n\nWIB\n\nWIB</string>
+    <string name="cari_coffee_shop_disini">Cari Coffee Shop Disini</string>
+</resources>
