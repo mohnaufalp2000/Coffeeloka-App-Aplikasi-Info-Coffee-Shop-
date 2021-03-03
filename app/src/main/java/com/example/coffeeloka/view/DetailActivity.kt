@@ -1,12 +1,16 @@
 package com.example.coffeeloka.view
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.bumptech.glide.Glide
+import com.example.coffeeloka.R
 import com.example.coffeeloka.databinding.ActivityDetailBinding
+
 
 class DetailActivity : AppCompatActivity() {
 
@@ -80,6 +84,20 @@ class DetailActivity : AppCompatActivity() {
         binding.appBarDetail.bringToFront()
         setSupportActionBar(binding.tbDetail)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+
+    override fun onBackPressed() {
+        AlertDialog.Builder(this)
+            .setTitle(R.string.app_name)
+            .setMessage("Anda yakin ingin keluar?")
+            .setPositiveButton("OK",
+                DialogInterface.OnClickListener {dialog, which -> finish()  }
+                )
+            .setNegativeButton("Cancel",
+            DialogInterface.OnClickListener{dialog, which -> dialog.cancel()  })
+            .show()
+
     }
 
 }

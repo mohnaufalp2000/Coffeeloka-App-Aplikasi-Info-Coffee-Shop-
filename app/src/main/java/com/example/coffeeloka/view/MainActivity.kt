@@ -1,11 +1,16 @@
 package com.example.coffeeloka.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.coffeeloka.R
 import com.example.coffeeloka.adapter.AdapterCoffee
 import com.example.coffeeloka.data.CoffeeData
 import com.example.coffeeloka.databinding.ActivityMainBinding
@@ -25,8 +30,23 @@ class MainActivity : AppCompatActivity() {
 
         showRecyclerView()
         findList()
+        profileListener()
 
     }
+
+    private fun profileListener() {
+        binding.tbMain.setOnMenuItemClickListener{menuItem ->
+            when(menuItem.itemId){
+                R.id.account -> {
+                    val profileIntent = Intent(this@MainActivity, ProfileActivity::class.java)
+                    startActivity(profileIntent)
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
 
     private fun findList() {
         binding.edtSearch.addTextChangedListener(object : TextWatcher{
