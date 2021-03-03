@@ -15,7 +15,7 @@ object CoffeeData {
         "Kudos Cafe",
         "Titik Koma Coffee",
         "Calibre Coffee Roaster",
-        "Tropikal Coffee"
+        "Jokopi"
     )
 
     private var dataAddress = arrayOf(
@@ -28,7 +28,7 @@ object CoffeeData {
         "Pakuwon Square AK 2 No.3 Surabaya",
         "Jl. Juwono No.25, Surabaya",
         "Jl. Walikota Mustajab No. 67-69",
-        "Jl. Keputih Tegal Timur, Keputih, Kec. Sukolilo, Kota Surabaya"
+        "Jl. Ketabang Kali No.51 A, Kel. Ketebang, Kec. Genteng, Kota SBY"
     )
 
     private var dataDetail = arrayOf(
@@ -94,7 +94,8 @@ object CoffeeData {
                 "Suasana di dalamnya begitu teduh dengan interior yang sungguh menawan. Meski tak terlalu lebar, tetapi Calibre tetap nyaman untuk kerja mau pun nongkrong. Apalagi spot fotonya yang keren abis dan berbeda dari coffee shop lainnya. Macam-macam menunya dibanderol mulai harga Rp 22-45 ribu.",
 
         //10
-        "Mengusung konsep tropical, cafe stu ini menyajikan nuansa layaknya sedang berlibur ke Bali. Tak hanya desain ruangannya cantik, menu yang disajikan juga tak kalah menarik. Cafe ini sangat cocok untuk kamu yang sudah mulai jenuh dengan minuman kopi yang biasa. Kamu bisa mencoba minuman kopi yang dipadukan dengan berbagai buah khas daerah tropis. Salah satu minuman favorit di cafe ini yaitu campuran kopi dan semangka yang terjadi dalam Tropikal Iced Latte."
+        "Lokasinya di Jalan Ketabang Kali Nomor 51A dan Jalan Untung Suropati Nomor 85. " +
+                "Menggunakan biji kopi asli Indonesia dengan kemasan yang unik berlambang kepala seseorang berpeci."
     )
 
     private val dataHours = arrayOf(
@@ -252,19 +253,19 @@ object CoffeeData {
 
         //10
         """
-                09.00-21.00 
+                07.00-20.30 
                   
-                09.00-21.00 
+                07.00-20.30 
                 
-                09.00-21.00 
+                07.00-20.30 
                 
-                09.00-21.00 
+                07.00-20.30  
                 
-                09.00–21.00 
+                07.00-20.30  
                 
-                09.00–21.00 
+                07.00-23.00  
                 
-                09.00–21.00 
+                09.00–23.00 
             """.trimIndent()
 
     )
@@ -295,6 +296,19 @@ object CoffeeData {
             4.0
     )
 
+    private val dataCall = arrayOf(
+        "0315671066",
+        "08998000099",
+        "08113073334",
+        "03199532288",
+        "081234127332",
+        "081357658829",
+        "03199016791",
+        "081357405500",
+        "0315454801",
+        "081217107975"
+    )
+
     private val dataImage = intArrayOf(
         R.drawable.blackbarn,
         R.drawable.aadk,
@@ -305,7 +319,7 @@ object CoffeeData {
         R.drawable.kudos,
         R.drawable.titikkoma,
         R.drawable.calibre,
-        R.drawable.tropical
+        R.drawable.jokopi
     )
 
     val listData: ArrayList<Coffee>
@@ -321,6 +335,7 @@ object CoffeeData {
                     hoursCoffee = dataHours[position]
                     priceCoffee = dataPrice[position]
                     rateCoffee = dataRate[position]
+                    callCoffe = dataCall[position]
                     imageCoffe = dataImage[position]
                 }
                 list.add(coffee)

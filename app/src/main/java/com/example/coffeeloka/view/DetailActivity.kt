@@ -1,5 +1,7 @@
 package com.example.coffeeloka.view
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
@@ -17,6 +19,7 @@ class DetailActivity : AppCompatActivity() {
         const val HOURS = "hours"
         const val PRICE = "price"
         const val RATE = "rate"
+        const val CALL = "call"
         const val IMAGE = "image"
     }
 
@@ -27,9 +30,21 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         getData()
+        callCoffeeShop()
         backButton()
 
     }
+
+    private fun callCoffeeShop() {
+        val number = intent.getStringExtra(CALL)
+
+        binding.btnCall.setOnClickListener {
+            val intentImplicit = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$number"))
+            startActivity(intentImplicit)
+        }
+
+    }
+
 
     private fun getData() {
         val detailTitleCoffee = intent.getStringExtra(TITLE)

@@ -3,13 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/like"
-        android:title="@string/like"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_baseline_favorite_24"
-        />
-
-    <item
         android:id="@+id/account"
         android:title="@string/account"
         android:icon="@drawable/ic_baseline_account_circle_24"

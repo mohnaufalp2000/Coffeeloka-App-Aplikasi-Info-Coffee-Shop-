@@ -7,5 +7,6 @@ data class Coffee(
     var hoursCoffee: String = "",
     var priceCoffee: String = "",
     var rateCoffee: Double = 0.0,
+    var callCoffe: String = "",
     var imageCoffe: Int = 0
 )

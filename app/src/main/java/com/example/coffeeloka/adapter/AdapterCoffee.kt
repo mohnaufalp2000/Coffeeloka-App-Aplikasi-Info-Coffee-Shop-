@@ -39,6 +39,7 @@ class AdapterCoffee(private var list : ArrayList<Coffee>) : RecyclerView.Adapter
                 putExtra(DetailActivity.HOURS, list[position].hoursCoffee)
                 putExtra(DetailActivity.PRICE, list[position].priceCoffee)
                 putExtra(DetailActivity.RATE, list[position].rateCoffee)
+                putExtra(DetailActivity.CALL, list[position].callCoffe)
                 putExtra(DetailActivity.IMAGE, list[position].imageCoffe)
             }
             holder.itemView.context.startActivity(intent)
