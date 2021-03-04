@@ -1,5 +1,6 @@
 package com.example.coffeeloka.view
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -7,6 +8,7 @@ import android.text.TextWatcher
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -78,4 +80,18 @@ class MainActivity : AppCompatActivity() {
         binding.rvCoffee.layoutManager = LinearLayoutManager(this)
         binding.rvCoffee.adapter = listAdapter
     }
+
+    override fun onBackPressed() {
+        AlertDialog.Builder(this)
+            .setTitle(R.string.app_name)
+            .setMessage("Anda yakin ingin keluar?")
+            .setPositiveButton("OK",
+                DialogInterface.OnClickListener { dialog, which -> finish()  }
+            )
+            .setNegativeButton("Cancel",
+                DialogInterface.OnClickListener{dialog, which -> dialog.cancel()  })
+            .show()
+    }
+
+
 }

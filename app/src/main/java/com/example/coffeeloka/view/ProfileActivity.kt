@@ -18,13 +18,16 @@ class ProfileActivity : AppCompatActivity() {
 
         loadImage()
         backButton()
+        onClick()
 
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
+    private fun onClick() {
+        binding.tbProfile.setNavigationOnClickListener {
+            finish()
+        }
     }
+
 
     private fun backButton() {
         setSupportActionBar(binding.tbProfile)

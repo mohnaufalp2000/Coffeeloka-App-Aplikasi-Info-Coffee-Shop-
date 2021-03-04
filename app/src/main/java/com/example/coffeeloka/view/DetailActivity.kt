@@ -36,6 +36,7 @@ class DetailActivity : AppCompatActivity() {
         getData()
         callCoffeeShop()
         backButton()
+        onClick()
 
     }
 
@@ -75,11 +76,12 @@ class DetailActivity : AppCompatActivity() {
 
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
+    private fun onClick() {
+        binding.tbDetail.setNavigationOnClickListener {
+            finish()
+        }
     }
-
+    
     private fun backButton() {
         binding.appBarDetail.bringToFront()
         setSupportActionBar(binding.tbDetail)
@@ -87,17 +89,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
 
-    override fun onBackPressed() {
-        AlertDialog.Builder(this)
-            .setTitle(R.string.app_name)
-            .setMessage("Anda yakin ingin keluar?")
-            .setPositiveButton("OK",
-                DialogInterface.OnClickListener {dialog, which -> finish()  }
-                )
-            .setNegativeButton("Cancel",
-            DialogInterface.OnClickListener{dialog, which -> dialog.cancel()  })
-            .show()
 
-    }
+
 
 }
