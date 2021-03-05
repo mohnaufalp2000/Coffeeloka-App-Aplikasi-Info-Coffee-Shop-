@@ -5,6 +5,7 @@ import com.example.coffeeloka.model.Coffee
 
 object CoffeeData {
 
+
     private var dataTitle = arrayOf(
         "BlackBarn Coffee",
         "Ada Apa Dengan Kopi",

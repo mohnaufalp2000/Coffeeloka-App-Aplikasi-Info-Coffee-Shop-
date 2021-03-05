@@ -1,6 +1,8 @@
 package com.example.coffeeloka.model
 
+
 data class Coffee(
+        var idCoffee : Int = 0,
     var titleCoffee: String = "",
     var addressCoffee: String = "",
     var detailCoffee: String = "",

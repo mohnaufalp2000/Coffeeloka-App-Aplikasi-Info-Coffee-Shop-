@@ -8,4 +8,8 @@
     <string name="days">Senin\n\nSelasa\n\nRabu\n\nKamis\n\nJumat\n\nSabtu\n\nMinggu</string>
     <string name="waktu_indonesia_barat">WIB\n\nWIB\n\nWIB\n\nWIB\n\nWIB\n\nWIB\n\nWIB</string>
     <string name="cari_coffee_shop_disini">Cari Coffee Shop Disini</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="favorite">Favorite</string>
+    <string name="bagikan">Bagikan</string>
 </resources>

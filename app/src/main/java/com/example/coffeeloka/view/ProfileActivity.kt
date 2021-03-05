@@ -2,6 +2,7 @@ package com.example.coffeeloka.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatDelegate
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.coffeeloka.R
@@ -12,6 +13,7 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var binding : ActivityProfileBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -30,6 +32,7 @@ class ProfileActivity : AppCompatActivity() {
 
 
     private fun backButton() {
+        binding.tbProfile.setNavigationIcon(R.drawable.previous)
         setSupportActionBar(binding.tbProfile)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }

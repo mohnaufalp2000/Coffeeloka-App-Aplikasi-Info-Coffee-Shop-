@@ -1,17 +1,31 @@
 package com.example.coffeeloka.adapter
 
-import android.content.Intent
+import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.graphics.drawable.toDrawable
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.coffeeloka.R
 import com.example.coffeeloka.databinding.ListCoffeeBinding
 import com.example.coffeeloka.model.Coffee
-import com.example.coffeeloka.view.DetailActivity
+import com.google.android.material.snackbar.Snackbar
+import com.like.LikeButton
+import com.like.OnLikeListener
 
-class AdapterCoffee(private var list : ArrayList<Coffee>) : RecyclerView.Adapter<AdapterCoffee.ListViewHolder>() {
+
+class AdapterCoffee(private var list : ArrayList<Coffee>, private val context: Context) : RecyclerView.Adapter<AdapterCoffee.ListViewHolder>() {
+
+    private lateinit var onItemClickCallback : OnItemClickCallback
 
     class ListViewHolder(val binding: ListCoffeeBinding) : RecyclerView.ViewHolder(binding.root)
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback){
+        this.onItemClickCallback = onItemClickCallback
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val layoutInflater =
@@ -25,25 +39,17 @@ class AdapterCoffee(private var list : ArrayList<Coffee>) : RecyclerView.Adapter
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         holder.binding.txtTitleCoffeeList.text = list[position].titleCoffee
         holder.binding.txtAddressCoffeeList.text = list[position].addressCoffee
+        holder.binding.txtAddressCoffeeList.text = list[position].addressCoffee
+        holder.binding.txtRateList.text = list[position].rateCoffee.toString()
 
         Glide.with(holder.binding.root)
             .load(list[position].imageCoffe)
             .into(holder.binding.imgCoffeeList)
 
-        holder.itemView.setOnClickListener {
-            val intent = Intent(holder.itemView.context, DetailActivity::class.java)
-            intent.apply {
-                putExtra(DetailActivity.TITLE, list[position].titleCoffee)
-                putExtra(DetailActivity.ADDRESS, list[position].addressCoffee)
-                putExtra(DetailActivity.DETAIL, list[position].detailCoffee)
-                putExtra(DetailActivity.HOURS, list[position].hoursCoffee)
-                putExtra(DetailActivity.PRICE, list[position].priceCoffee)
-                putExtra(DetailActivity.RATE, list[position].rateCoffee)
-                putExtra(DetailActivity.CALL, list[position].callCoffe)
-                putExtra(DetailActivity.IMAGE, list[position].imageCoffe)
-            }
-            holder.itemView.context.startActivity(intent)
+        holder.itemView.setOnClickListener{
+            onItemClickCallback.onItemClicked(list[holder.adapterPosition])
         }
+
 
     }
 
@@ -51,6 +57,11 @@ class AdapterCoffee(private var list : ArrayList<Coffee>) : RecyclerView.Adapter
         list = filteredList
         notifyDataSetChanged()
     }
+
+    interface OnItemClickCallback {
+        fun onItemClicked(coffee: Coffee)
+    }
+
 
 }
 

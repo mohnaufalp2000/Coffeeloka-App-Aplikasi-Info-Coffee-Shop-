@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list_coffee"
     android:layout_width="match_parent"
     android:layout_height="170dp"
     android:padding="20dp">
@@ -74,5 +75,8 @@
         app:layout_constraintEnd_toStartOf="@+id/txt_rate_list"
         app:layout_constraintTop_toTopOf="@+id/txt_rate_list"
         app:srcCompat="@drawable/ic_baseline_star_rate_24" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

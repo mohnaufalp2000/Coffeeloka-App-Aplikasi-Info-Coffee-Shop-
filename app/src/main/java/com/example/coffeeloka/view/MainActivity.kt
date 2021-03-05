@@ -5,9 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -18,10 +15,11 @@ import com.example.coffeeloka.data.CoffeeData
 import com.example.coffeeloka.databinding.ActivityMainBinding
 import com.example.coffeeloka.model.Coffee
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
-    private val listAdapter = AdapterCoffee(CoffeeData.listData)
+    private val listAdapter = AdapterCoffee(CoffeeData.listData, this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -36,6 +34,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
     private fun profileListener() {
         binding.tbMain.setOnMenuItemClickListener{menuItem ->
             when(menuItem.itemId){
@@ -48,6 +47,34 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    private fun showRecyclerView() {
+
+        binding.rvCoffee.setHasFixedSize(true)
+        binding.rvCoffee.layoutManager = LinearLayoutManager(this)
+        binding.rvCoffee.adapter = listAdapter
+
+        listAdapter.setOnItemClickCallback(object : AdapterCoffee.OnItemClickCallback{
+            override fun onItemClicked(coffee: Coffee) {
+                val intent = Intent(this@MainActivity, DetailActivity::class.java)
+                intent.apply {
+                    putExtra(DetailActivity.TITLE, coffee.titleCoffee)
+                    putExtra(DetailActivity.ADDRESS, coffee.addressCoffee)
+                    putExtra(DetailActivity.DETAIL, coffee.detailCoffee)
+                    putExtra(DetailActivity.HOURS, coffee.hoursCoffee)
+                    putExtra(DetailActivity.PRICE, coffee.priceCoffee)
+                    putExtra(DetailActivity.RATE, coffee.rateCoffee)
+                    putExtra(DetailActivity.CALL, coffee.callCoffe)
+                    putExtra(DetailActivity.IMAGE, coffee.imageCoffe)
+                }
+                startActivity(intent)
+            }
+
+        })
+
+    }
+
+
 
 
     private fun findList() {
@@ -74,12 +101,7 @@ class MainActivity : AppCompatActivity() {
             listAdapter.filterList(filteredList)
     }
 
-    private fun showRecyclerView() {
 
-        binding.rvCoffee.setHasFixedSize(true)
-        binding.rvCoffee.layoutManager = LinearLayoutManager(this)
-        binding.rvCoffee.adapter = listAdapter
-    }
 
     override fun onBackPressed() {
         AlertDialog.Builder(this)
